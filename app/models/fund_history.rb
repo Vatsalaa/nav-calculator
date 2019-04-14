@@ -1,0 +1,2 @@
+class FundHistory < ApplicationRecord
+end

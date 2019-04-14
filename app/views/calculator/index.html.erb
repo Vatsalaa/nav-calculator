@@ -1,0 +1,43 @@
+<h1>NAV Calculator</h1>
+<div>
+<table>
+  <thead/>
+  <tbody>
+  <%= form_for :calculator, url: { action: :submit }, method: :get do |f|   %>
+    <tr>
+      <td>Select Fund</td>
+      <td>
+        <%= select_tag(:fund_code, options_for_select(Fund.get_all_funds)) %>
+      </td>
+    </tr>
+    <tr>
+      <td>Amount to Invest (Rs.)</td>
+      <td>
+        <%= text_field(:user, :amount) %>
+      </td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>
+        <%= select_date(Date.today, prompt: true) %>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <%= f.submit 'Calculate!' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>
+<div>
+<% unless @result.nil? %>
+  <p> Your investment would worth Rs. <%= @result %> </p>
+<% end %>
+<% unless @error.nil? %>
+  <p> Error!! : <%= @error %> </p>
+<% end %>
+</div>
+<br>

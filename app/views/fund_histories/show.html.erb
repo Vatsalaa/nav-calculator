@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @fund_history.date %>
+</p>
+
+<p>
+  <strong>Nav:</strong>
+  <%= @fund_history.nav %>
+</p>
+
+<%= link_to 'Edit', edit_fund_history_path(@fund_history) %> |
+<%= link_to 'Back', fund_histories_path %>
